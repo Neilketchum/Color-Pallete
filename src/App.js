@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
-import Pallete from './Pallete'
+import Palette from './Palette'
 import seedColors from "./seedColors"
 import {generatePalette } from './colorHelpers'
+import 'rc-slider/assets/index.css';
 class App extends Component{
     render(){
         console.log(generatePalette(seedColors[4]))
         return(
             <div>
-              <Pallete palette = {generatePalette(seedColors[4])}/>
+              <Palette palette = {generatePalette(seedColors[4])}/>
             </div>
         )
     }
