@@ -1,11 +1,11 @@
 body{
     box-shadow: border-box;
-    overflow-y: hidden; /* Hide vertical scrollbar */
-    overflow-x: hidden; /* Hide horizontal scrollbar */
+    /* overflow-y: hidden; Hide vertical scrollbar */
+    /* overflow-x: hidden; Hide horizontal scrollbar */
 }
 .ColorBox{
     width:20%;
-    height: 25%;
+    height: 24.4%;
     margin: 0 auto;
     display: inline-block;
     position: relative;
