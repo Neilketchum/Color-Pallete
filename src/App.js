@@ -5,6 +5,7 @@ import {generatePalette } from './colorHelpers'
 import 'rc-slider/assets/index.css';
 import {Route,Switch} from 'react-router-dom';
 import PaletteList from './PaletteList';
+import SingleColorPalette from './SingleColorPalette';
 
 class App extends Component{
     // findPalette(id){
@@ -27,7 +28,7 @@ class App extends Component{
                       <Palette palette = {generatePalette(
                           this.findPalette(routeProps.match.params.id
                           ))}/> } />
-                    <Route exact path = '/palette/:id/:colorid' render = {()=><h1>Hiii</h1>}></Route>
+                    <Route exact path = '/palette/:id/:colorid' render = {()=><SingleColorPalette/>}></Route>
             </Switch>
         )
     }
