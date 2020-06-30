@@ -59,6 +59,10 @@ body{
     text-align: center;
     line-height: 30px;
     text-transform: uppercase;
+    /* transform: scale(1.2); */
+}
+.see-more:hover{
+    transform: scale(1.1);
 }
 .copy-overlay{
     opacity: 0;
