@@ -8,11 +8,6 @@ import PaletteList from './PaletteList';
 import SingleColorPalette from './SingleColorPalette';
 
 class App extends Component{
-    // findPalette(id){
-    //     seedColors.find(function(palette){
-    //         palette.id === id;
-    //     });
-    // }
     findPalette(id){
       return  seedColors.find((palette)=>{
             return palette.id === id
@@ -28,7 +23,8 @@ class App extends Component{
                       <Palette palette = {generatePalette(
                           this.findPalette(routeProps.match.params.id
                           ))}/> } />
-                    <Route exact path = '/palette/:id/:colorid' render = {()=><SingleColorPalette/>}></Route>
+                    <Route exact path = '/palette/:paletteId/:colorid' render = {(routeProps)=><SingleColorPalette
+                     palette = {generatePalette(this.findPalette(routeProps.match.params.paletteId))} colorId  = {routeProps.match.params.colorid} />}></Route>
             </Switch>
         )
     }
