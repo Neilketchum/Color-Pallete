@@ -93,7 +93,8 @@ class NewPaletteForm extends Component {
       }
       this.updateCurrentColor = this.updateCurrentColor.bind(this);
       this.addNewColor = this.addNewColor.bind(this);
-      this.handleChange = this.handleChange.bind(this)
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this)
   }
   componentDidMount() {
     ValidatorForm.addValidationRule("isColorUnique", value =>
@@ -108,6 +109,13 @@ class NewPaletteForm extends Component {
       
     )
   );
+  }
+  handleSubmit(){
+    const newPalette = {
+      paletteName : "Test Palette",
+      color:this.state.colors
+  }
+    this.props.savePalette(newPalette)
   }
   handleDrawerOpen = () => {
     this.setState({ open: true });
@@ -163,6 +171,7 @@ class NewPaletteForm extends Component {
               Persistent drawer
             </Typography>
           </Toolbar>
+          <Button variant = "contained" color = "secondary" onClick = {this.handleSubmit}>Save Button</Button>
         </AppBar>
         <Drawer
           className={classes.drawer}

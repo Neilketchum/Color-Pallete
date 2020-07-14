@@ -9,17 +9,26 @@ import SingleColorPalette from './SingleColorPalette';
 import NewPaletteForm from './NewPaletteForm';
 
 class App extends Component{
+    constructor(props){
+        super(props);
+        this.savePalette = this.savePalette.bind(this)
+    
+    }
     findPalette(id){
       return  seedColors.find((palette)=>{
             return palette.id === id
         })
+    }
+    savePalette(newPalette){
+       
+        console.log(newPalette)
     }
     render(){
         // console.log(generatePalette(seedColors[4]))
 
         return(
             <Switch>
-                      <Route exact path = '/palette/new' render = {() => <NewPaletteForm/>}/> 
+                      <Route exact path = '/palette/new' render = {() => <NewPaletteForm savePalette = {this.savePalette}/>}/> 
                       <Route exact path = '/' render = {(routeProps)=><PaletteList palettes = {seedColors} {...routeProps}/>}/>
                       <Route exact path = '/palette/:id' render = {(routeProps)=>
                       <Palette palette = {generatePalette(
