@@ -100,7 +100,6 @@ class NewPaletteForm extends Component {
     ValidatorForm.addValidationRule("isColorUnique", value =>
       this.state.colors.every(
         ({ color }) => color !== this.state.currentColor
-        
       )
     );
     ValidatorForm.addValidationRule("isColorNameUnique", value =>
@@ -111,11 +110,15 @@ class NewPaletteForm extends Component {
   );
   }
   handleSubmit(){
+    let newName = 'Test Palette'
     const newPalette = {
-      paletteName : "Test Palette",
-      color:this.state.colors
+      paletteName : newName,
+      id: newName.toLowerCase().replace(/ /g, "-"),
+      colors: this.state.colors,
+
   }
-    this.props.savePalette(newPalette)
+    this.props.savePalette(newPalette);
+    this.props.history.push('/');
   }
   handleDrawerOpen = () => {
     this.setState({ open: true });
@@ -143,6 +146,7 @@ class NewPaletteForm extends Component {
     this.setState({
       newName:e.target.value
     })
+
   }
   render() {
     const { classes } = this.props;
